@@ -1,0 +1,124 @@
+/* Reset */
+body{
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+/* Estilos tabela */
+    #secaoTabela{
+        padding-top: 2vw;
+    }
+
+    #tabela{
+        width:28vw;
+        font-size: 20px;
+        float: left;
+    }
+
+    #tabela tr td{
+        max-width: 150px;
+    }
+
+    #tituloTabela{
+        background-color: rgb(136, 135, 135);
+    }
+
+/* Estilos Linhas */
+    .LinhaPessoa{
+        background-color: rgb(212, 212, 212);
+    }
+
+    .LinhaPessoa > td:first-child{
+    margin: auto 30px;
+    }
+
+    .LinhaFilho{
+        background-color: rgb(179, 176, 175);
+    }
+
+    .LinhaFilho td:first-child{
+        padding-left: 18px;
+    }
+
+/* Estilos botões e Textarea */
+    #textjson{
+        float: left;
+        margin-left: 4%;
+        width: 35%;
+        height: 60vh;
+    }
+
+    .btnAdicionarFilho{
+    height: 2vw;
+    min-height: 38px;
+    width: 120px;
+    margin-left: 50%;
+    margin-bottom: 5vh;
+    background-color: rgb(221, 221, 221);
+    }
+
+    .btnAdicionarFilho:hover{
+        text-decoration: underline;
+        background-color: rgb(168, 168, 168);
+    }
+
+    .btnRemoverPessoa{
+        width: 100%;
+    }
+
+    .btnRemoverFilho{
+        width: 50%;
+        margin: auto 25%;
+    }
+
+    #btnGravar{
+        padding: 5px 10px;
+        font-size: 14px;
+        margin-bottom: 16px;
+    }
+
+    #btnGravar:hover{
+        text-decoration: underline 1px;
+        background-color: rgb(172, 172, 172);
+    }
+
+    #btnLer{
+        padding: 5px 10px;
+        font-size: 14px;
+        margin-left: 20px;
+    }
+
+    #btnLer:hover{
+        text-decoration: underline 1px;
+        background-color: rgb(172, 172, 172);
+    }
+
+    #telaCarregamento{
+        position: absolute;
+        display: none;
+        z-index: 3;
+        margin: 0px;
+        top: 0px;
+        opacity: 0.5;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(29, 25, 32);
+        justify-content: center;
+        align-items: center
+    }
+
+    #loader{
+        width:10vw;
+        height: 10vw;
+        border: 3px rgb(238, 67, 67) solid;
+        border-top:3px rgb(41, 243, 226) solid;
+        border-radius: 50%;
+        animation: toRotating 1s infinite;
+    }
+
+    @keyframes toRotating {
+        to{
+            transform: rotate(1turn);
+        }
+    }
