@@ -179,13 +179,12 @@
            body:json
           }
           return fetch(url, options)
-          .then(alert("Dados enviados com sucesso!"))
+          .then( MostrarCarregamento(),alert("Dados enviados com sucesso!"))
           .catch(function(error){
             console.log(error);
-          }).finally(function () {
-            MostrarCarregamento()
-              }
-          )
+          })
+               
+
          
     }
 
@@ -215,7 +214,7 @@
     }
 
     function MostrarCarregamento(){
-        let iconecarregar=document.getElementById('telaCarregamentoinit');
+        let iconecarregar=document.getElementById('telaCarregamento');
 
         if (iconecarregar.style.display=='flex') {    
             iconecarregar.style.display='none';
