@@ -22,23 +22,22 @@
     function Eventos(btnRemover,btnAdicinarFilho) {
         btnRemover.addEventListener('click', RemoverPessoa);
         btnAdicinarFilho.onclick=AdicionarFilho;
-
         nome.value="";       
     }
     
     function AdicionarFilho(){
         let nomeFilho= prompt("Qual o nome do filho?");
         if (nomeFilho!=null && nomeFilho!="") {
-              let Dados= document.getElementById("textjson").value;
-        Dados=JSON.parse(Dados);
-    
-        let btn="btnAdicionarFilho";
-        Object.keys(Dados.Pessoas).forEach((key) => {
+            let Dados= document.getElementById("textjson").value;
+            Dados=JSON.parse(Dados);
         
-            if(btn+key==this.id){
-                Dados.Pessoas[key].Filhos.push(nomeFilho);
-            }
-        });
+            let btn="btnAdicionarFilho";
+            Object.keys(Dados.Pessoas).forEach((key) => {
+            
+                if(btn+key==this.id){
+                    Dados.Pessoas[key].Filhos.push(nomeFilho);
+                }
+            });
 
         let campo= document.getElementById('textjson');
         campo.textContent=JSON.stringify(Dados,null,2);
@@ -51,7 +50,7 @@
         LimparTabela();
 
         let json = document.getElementById('textjson').textContent;
-        let tabela = document.getElementById('tabela');
+        let tabela = document.getElementById('bodyTabela');
         let Dados = JSON.parse(json);
         idlinha=0;
       
@@ -67,7 +66,10 @@
 
             btnRemover.textContent="Remover";
             btnRemover.id="btnRemover"+key;
-            btnRemover.classList.add("btnRemoverPessoa");
+            btnRemover.type="button";
+            btnRemover.classList.add("btn");
+            btnRemover.classList.add("btn-sm");
+            btnRemover.classList.add("btn-primary");
 
             btnAdicinarFilho.textContent="Adicionar Filho";
             btnAdicinarFilho.id="btnAdicionarFilho"+key;       
@@ -92,15 +94,17 @@
                     let cellbtn=document.createElement('td');
                     let btnRemoverFilho=document.createElement('button');
 
-                    linhaf.classList.add('LinhaFilho');
+                    //linhaf.classList.add('LinhaFilho');
                    
                      //key1 define o nº da pessoas  e ket2 define o filho
                     btnRemoverFilho.id="btnRemover"+key+key2;
                     btnRemoverFilho.onclick=RemoverFilho;
                    
-                    btnRemoverFilho.textContent="Remover Filho"; 
-                    btnRemoverFilho.classList.add("btnRemoverFilho");  
-                    cellf.textContent=" -"+Dados.Pessoas[key].Filhos[key2];
+                    btnRemoverFilho.textContent="Remover Dependente";
+                    btnRemoverFilho.classList.add("btn");   
+                    btnRemoverFilho.classList.add("btn-sm");
+                    btnRemoverFilho.classList.add("btn-outline-danger");
+                    cellf.textContent=" ---"+Dados.Pessoas[key].Filhos[key2];
 
                     linhaf.appendChild(cellf);
                     cellbtn.appendChild(btnRemoverFilho);
@@ -125,7 +129,7 @@
                 Dados.Pessoas.splice(key,1);
             }
         });
-        
+       
         let campo= document.getElementById('textjson');
         campo.textContent=JSON.stringify(Dados,null,2);
   
@@ -152,11 +156,12 @@
     }  
 
     function LimparTabela(){
-        var tabela = document.getElementById("tabela");   
+        var tabela = document.getElementById("bodyTabela");   
         var todaslinhas= tabela.childNodes.length;
-             
+        
         if(todaslinhas>0){
-            for (let index = 0; index < todaslinhas-2; index++) {              
+            for (let index = 0; index < todaslinhas; index++) { 
+                console.log("N  linhha "+todaslinhas);             
                  tabela.removeChild(tabela.lastChild);
                 }
         }                         

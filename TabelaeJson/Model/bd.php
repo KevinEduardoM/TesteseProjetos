@@ -7,12 +7,12 @@
     { 
         //É necessario atualizar as configurações do banco caso o mesmo possua senha.
         $user="root";
-        $password="shinka8001";
+        $password="password";
        
         try{
-            $conn=new PDO('mysql:host=localhost;port=3307',$user,$password); 
+            $conn=new PDO('mysql:host=localhost;port=3306',$user,$password); 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-            $sql = "CREATE DATABASE IF NOT EXISTS bdfase2";
+            $sql = "CREATE DATABASE IF NOT EXISTS bdJsonTabela";
        
             $conn->exec($sql);
         }catch(PDOException $error){
@@ -24,7 +24,7 @@
    
     public function criaTabelas($conection){
         $table="Pessoa";
-        $conection->query("use bdfase2");
+        $conection->query("use bdJsonTabela");
         $tableExists = $conection->query("SHOW TABLES LIKE '$table'")->rowCount() > 0;
         
         if($tableExists){
@@ -50,8 +50,8 @@
        
     
     public function GravarDados($dados,$con){
-         $this->criaTabelas($con);
-        $con->query("use bdfase2");
+        $this->criaTabelas($con);
+        $con->query("use bdJsonTabela");
         $obj=json_decode($dados);
         $id=1;
 
@@ -77,7 +77,7 @@
     public function RetornarDados($conn){
         $pessoas=[];
         $i=1;
-        $conn->query("use bdfase2");
+        $conn->query("use bdJsonTabela");
         $consulta=$conn->query("Select (nome) from Pessoa");
         
         while($linha = $consulta->fetch(PDO::FETCH_ASSOC)){

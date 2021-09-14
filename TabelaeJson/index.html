@@ -4,30 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste-Fase 2</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <title>Tabela e JSON</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="assets/style.css"/>
 </head>
+
 <body>
-    <button id="btnGravar">Gravar</button>
-    <button id="btnLer">Ler</button>
-    <form>
-        <label for="nome">Nome:</label><input id="nome" type="text">
-        <input id="btnincluir" type="button" value="Cadastrar">
-    </form>
-    <section id="secaoTabela">
-      
-        <table id="tabela">
-            <caption id="tituloTabela">Pessoas</caption>     
-        </table>
-                <textarea name="" id="textjson" cols="30" rows="10"></textarea>
-    </section>
-    <br>
-   <!-- PS:Para realizar a execução do projeto é necessario atualizar as configurações de conexão com o banco -->
+    <main id="main">
+        <section id="mainSection">
+            <article class="headermainSection">
+                <form>
+                    <label for="nome">Nome:</label><input id="nome" type="text">
+                    <input id="btnincluir" type="button" value="Cadastrar">
+                </form>        
+            </article>    
+        
+            <section id="tableSection">
+                <table id="tabela" class="table">
+                    <thead><tr><th>Pessoas e Dependentes</th></tr></thead>
+                    <tbody id="bodyTabela">
+                        
+                    </tbody>
+                </table>
+            </section>
     
-   <section id="telaCarregamento">
+            <textarea id="textjson" cols="30" rows="10" readonly></textarea>
+        </section>
+        
+        <section id="telaCarregamento">
        <div id="loader">
        </div>
-   </section> 
+        </section>
+
+    <article class="butonsMenu">
+        <button id="btnGravar" class="btn btn-outline-light btn-lg">Gravar</button>
+        <button type="button" id="btnLer" class="btn btn-outline-light btn-lg">Ler</button>
+    </article>
+
+    </main>
+   
+
+   <!-- PS:Para realizar a execução do projeto é necessario atualizar as configurações de conexão com o banco -->
+ 
+   
+    <script src="vendor/components/jquery/jquery.min.js"></script>
+    <script src="vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/script.js"></script>
 </body>
 </html>
